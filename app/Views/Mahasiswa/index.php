@@ -1,49 +1,77 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-        <title>Hello, world!</title>
-    </head>
-    <body>
+<?= $this->extend('layout/template') ?>
+ 
+<?= $this->section('content') ?>
         <div class="container">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($mahasiswa as $k) : ?>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td><?= $k->nama_mahasiswa; ?></td>
-                            <td><?= $k->nama_prodi; ?></td>
-                            <td><?= $k->tahun_masuk; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <h3 class="mt-3">List Mahasiswa</h3>
+            <?php if(session()->getFlashdata('pesan sukses')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashData('pesan sukses'); ?>
+                </div>
+            <?php endif; ?>
+            <?php if(session()->getFlashdata('pesan gagal')) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= session()->getFlashData('pesan gagal'); ?>
+                </div>
+            <?php endif; ?>
+            <?php if(session()->getFlashdata('pesan gagal search')) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= session()->getFlashData('pesan gagal search');session_destroy(); ?>
+                </div>
+            <?php endif; ?>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search mahasiswa.." name="keyword" autocomplete="off" autofocus>
+                            <div class="input-group-append">
+                                <input class="btn btn-primary" type="submit" name="submit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-4">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Program Studi</th>
+                                    <th scope="col">Tahun Masuk</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $number = 1;
+                                foreach ($mahasiswa as $k) : 
+                                ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $number; ?></th>
+                                        <td><?= $k->nama_mahasiswa; ?></td>
+                                        <td><?= $k->nama_prodi; ?></td>
+                                        <td><?= $k->tahun_masuk; ?></td>
+                                        <td>
+                                            <a href="/<?= $k->id;?>" class="btn btn-success">Detail</a>
+                                        </td>
+                                    </tr>
+                                <?php 
+                                $number++;
+                                endforeach; 
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-4">
+                        <a class="btn btn-primary" href="/create" role="button">Tambah Mahasiswa</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Optional JavaScript; choose one of the two! -->
-
-        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-        <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-        -->
-    </body>
-</html>
+<?= $this->endSection() ?>

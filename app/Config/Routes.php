@@ -30,10 +30,13 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/ppl', 'TestPPLController::index');
-$routes->get('/ppl/create', 'TestPPLController::create');
-$routes->post('/ppl/save', 'TestPPLController::save');
+$routes->get('/v_berita', 'c_testBerita::index');
+$routes->get('/v_home', 'c_testHome::index');
+$routes->get('/', 'c_mahasiswa::index');
+$routes->post('/', 'c_mahasiswa::index');
+$routes->get('/create', 'c_mahasiswa::create');
+$routes->post('/save', 'c_mahasiswa::save');
+$routes->get('/(:segment)', 'c_mahasiswa::detail/$1');
 
 /**
  * --------------------------------------------------------------------

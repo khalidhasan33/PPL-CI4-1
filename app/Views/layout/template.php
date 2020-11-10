@@ -11,8 +11,16 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <?= $this->renderSection('content'); ?>
+    <!-- As a heading -->
+    <nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-text">
+        <a href="/v_home">Home</a>
+        <a href="/v_berita">Berita</a>
+        <a href="/">Mahasiswa</a>
+    </span>
+    </nav>
+
+    <?= $this->renderSection('content') ?>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
