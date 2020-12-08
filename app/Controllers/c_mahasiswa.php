@@ -27,12 +27,12 @@ class c_mahasiswa extends Controller
 		if(!$mahasiswa){
 			session()->setFlashdata('pesan gagal search', 'Mahasiswa tidak berhasil ditemukan.');
 		}
-		return view('Mahasiswa/index', $data);
+		return view('mahasiswa/index', $data);
 	}
 
 	public function create()
 	{
-		return view('Mahasiswa/create');
+		return view('mahasiswa/create');
 	}
 
 	public function save()
@@ -61,7 +61,7 @@ class c_mahasiswa extends Controller
 		if($mahasiswa==NULL){
 			throw new \CodeIgniter\Exceptions\PageNotFoundException('Mahasiswa Tidak ditemukan');
 		}else{
-			return view('Mahasiswa/detail', $data);
+			return view('mahasiswa/detail', $data);
 		}
 	}
 }

@@ -30,13 +30,21 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/v_berita', 'c_testBerita::index');
-$routes->get('/v_home', 'c_testHome::index');
-$routes->get('/', 'c_mahasiswa::index');
-$routes->post('/', 'c_mahasiswa::index');
-$routes->get('/create', 'c_mahasiswa::create');
-$routes->post('/save', 'c_mahasiswa::save');
-$routes->get('/(:segment)', 'c_mahasiswa::detail/$1');
+$routes->get('/v_login', 'c_login::index');
+$routes->post('/v_login', 'c_login::login');
+$routes->get('/v_logout', 'c_login::logout');
+$routes->get('/v_news', 'c_news::index');
+$routes->post('/v_news', 'c_news::index');
+$routes->get('/v_news/(:segment)', 'c_news::detail/$1');
+$routes->get('/v_newsAdd', 'c_news::create',['filter' => 'auth']);
+$routes->post('/news_save', 'c_news::save');
+// $routes->get('/v_berita', 'c_testBerita::index',['filter' => 'auth']);
+// $routes->get('/v_home', 'c_testHome::index',['filter' => 'auth']);
+// $routes->get('/', 'c_mahasiswa::index',['filter' => 'auth']);
+// $routes->post('/', 'c_mahasiswa::index',['filter' => 'auth']);
+// $routes->get('/create', 'c_mahasiswa::create',['filter' => 'auth']);
+// $routes->post('/save', 'c_mahasiswa::save');
+// $routes->get('/(:segment)', 'c_mahasiswa::detail/$1');
 
 /**
  * --------------------------------------------------------------------

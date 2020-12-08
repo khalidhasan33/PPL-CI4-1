@@ -1,0 +1,20 @@
+CRITICAL - 2020-11-10 03:13:44 --> Undefined property: App\Controllers\c_login::$session
+#0 /var/www/html/PPL-CI4-1/app/Controllers/c_login.php(33): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\c_login->login()
+#2 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/PPL-CI4-1/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/var/www/html/P...')
+#6 {main}
+CRITICAL - 2020-11-10 03:15:51 --> Class 'app\Filters\auth' not found
+#0 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/CodeIgniter.php(382): CodeIgniter\Filters\Filters->run()
+#1 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest()
+#2 /var/www/html/PPL-CI4-1/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#3 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/var/www/html/P...')
+#4 {main}
+CRITICAL - 2020-11-10 03:17:26 --> Class 'app\Filters\auth' not found
+#0 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/CodeIgniter.php(382): CodeIgniter\Filters\Filters->run()
+#1 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest()
+#2 /var/www/html/PPL-CI4-1/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#3 /var/www/html/PPL-CI4-1/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/var/www/html/P...')
+#4 {main}
